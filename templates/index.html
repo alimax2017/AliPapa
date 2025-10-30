@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Vente de Meubles</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>🪑 Boutique de Meubles</h1>
+    </header>
+
+    <main class="meubles-container">
+        {% for meuble in meubles %}
+        <div class="meuble-card">
+            <img src="{{ url_for('static', filename=meuble.image) }}" alt="{{ meuble.nom }}">
+            <h2>{{ meuble.nom }}</h2>
+            <p class="prix">{{ meuble.prix }} €</p>
+            <p>{{ meuble.description }}</p>
+            <button>Ajouter au panier</button>
+        </div>
+        {% endfor %}
+    </main>
+
+    <footer>
+        <p>© 2025 Ma Boutique de Meubles</p>
+    </footer>
+</body>
+</html>
